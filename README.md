@@ -79,13 +79,17 @@ Both the best performing models are made up of multiple models i have shown mode
 ## Hyperparameter Tuning
 If we look at AutoML Run LightGBM and SGD which Gradient Boosted Models seems to be performing well. But they are Not available in SKlearn Library. SKlearn provides `GradientBoostingClassifier` which is based on similiar approach of Gradient Boosting. For simplicity i used sklearn based `GradientBoostingClassifier`.
 
+The code for finetuning the model is available in `train.py` file. We simply use this code in every run and pass different set of Hyperparameter in the Python file.
+
 Amoung various parameters of `GradientBoostingClassifier` below three parameters seems to be effective performance based on sklearn documentation
 * **n_estimators** : The number of boosting stages to perform. Gradient boosting is fairly robust to over-fitting so a large number usually results in better performance. The selected range is `(1,10,20,50,100,200,500)`
 * **max_depth** : The maximum depth of the individual regression estimators. The maximum depth limits the number of nodes in the tree. Tune this parameter for best performance. The selected range is `(1, 5, 10, 20, 30, 50, 100)`
 * **learning_rate** : Learning rate shrinks the contribution of each tree. The selected range of parameters is `(1, 0.1, 0.01, 0.001)`
 
 ### Results
-Below images shows image of run widget and best performing model run.
+Below images shows image of run widget and best performing model run. 
+
+Which is shown in below image after deployement.
 ![HyperDrive_run](Resources/Images/HyperDrive_Run.PNG)
 ![HyperDrive_Best_Model](Resources/Images/HyperDrive_Best_Model.PNG)
 
@@ -98,9 +102,12 @@ n_estimators: 500
 ```
 
 ## Model Deployment
+Best performing model is from AutoML run. I deployed **stackensembleclassifier** from automl run. 
 ![Active_endpoint](Resources/Images/Endpoint_Active.PNG)
 ![Active_Status](Resources/Images/Active_Endpoint.PNG)
 ![State_Endpoint](Resources/Images/State_Endpoint.PNG)
+
+After Deployment we can perform inference using RestEndpoint URL/ Scoring URI by simple post request. I have provided Sample Code for doing inference in [AutoML Notebook](automl.ipynb).
 
 ## Screen Recording
 [Youtube](https://youtu.be/DfyGiSjVQm4)
