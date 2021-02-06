@@ -2,7 +2,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 import argparse
 import os
 import numpy as np
-from sklearn.metrics import roc_auc_score
+# from sklearn.metrics import roc_auc_score
 import joblib
 from sklearn.model_selection import train_test_split
 import pandas as pd
@@ -37,9 +37,11 @@ def main():
         max_depth=args.max_depth, 
         random_state=12345).fit(x_train, y_train)
 
-    y_prob = model.predict_proba(x_test)[:, 1]
-    AUC = roc_auc_score(y_test, y_prob, average='weighted')
-    run.log("AUC_weighted", np.float(AUC))
+    # Calculate accuracy
+    accuracy = model.score(x_test, y_test)
+    # y_prob = model.predict_proba(x_test)[:, 1]
+    # AUC = roc_auc_score(y_test, y_prob, average='weighted')
+    run.log("Accuracy", np.float(accuracy))
 
     os.makedirs('outputs', exist_ok=True)
     joblib.dump(model, 'outputs/model.joblib')
