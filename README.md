@@ -6,6 +6,16 @@ First we will use HyperDrive to do Hyperparameter Tuning and get best performing
 
 ## Project Set Up and Installation
 
+Step1. Open Azure Machine Learning Studio By login into https://portal.azure.com/
+
+Step2. Create a Cluster Instance with Default parameters. Detailed steps are provide in this [link](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance)
+
+Step3. Open Terminal from created Cluster Instance.
+
+Step4. Clone this repository by using below command in terminal.
+```
+git clone https://github.com/bhadreshpsavani/Breast-Cancer-Prediction-AzureML.git
+```
 
 ## Dataset
 
@@ -22,34 +32,65 @@ The breast cancer dataset is a classic and very easy **binary classification** d
 
 We used sklearn version of dataset
 
+The target is distributed like this,
+| Target/Label | Percentage |
+| --- | --- |
+| 1 | 62.7417 |
+| 0 | 37.2583|
+
 ### Task
 Our task is to do Binary Classification on Breast Cancer Dataset, we will use all 30 features for training and testing.
 
 ### Access
-*TODO*: Explain how you are accessing the data in your workspace.
+Since we are using dataset from sklearn we can directly access dataset in Azure Notebook by importing sklearn datasets module,
+
+We can do it like this, 
+```
+from sklearn import datasets
+data = datasets.load_breast_cancer(as_frame=True)
+
+```
+We should need to register dataset in Azure Studio while using it in AutoML we can do it like this,
+```
+from azureml.data.dataset_factory import TabularDatasetFactory
+from azureml.data.datapath import DataPath
+
+# Create TabularDataset using TabularDatasetFactory
+def_blob_store = ws.get_default_datastore()
+print("Default datastore's name: {}".format(def_blob_store.name))
+data_path = DataPath(datastore=def_blob_store, path_on_datastore='datapath')
+ds = TabularDatasetFactory.register_pandas_dataframe(df, name='UCI_ML_Breast_Cancer', target=data_path)
+```
 
 ## Automated ML
-*TODO*: Give an overview of the `automl` settings and configuration you used for this experiment
+We choose  `experiment_timeout_minutes=50mins` to give enough time to try all experiments,  `max_concurrent_iterations=5` according to max_nodes given while creating `training_instance`, We choose Accuracy as Primary Metrics since data is not highly imbalanced it seems good fit for binary classification problem.
 
 ### Results
-*TODO*: What are the results you got with your automated ML model? What were the parameters of the model? How could you have improved it?
-
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+![AutoML_Run](Resources/Images/AutoML_Run.PNG)
+![Best AutoML Model](/Resources/Images/AutoML_Best_Model.PNG)
 
 ## Hyperparameter Tuning
-*TODO*: What kind of model did you choose for this experiment and why? Give an overview of the types of parameters and their ranges used for the hyperparameter search
+If we look at AutoML Run LightGBM and SGD which Gradient Boosted Models seems to be performing well. But they are Not available in SKlearn Library. SKlearn provides `GradientBoostingClassifier` which is based on similiar approach of Gradient Boosting. For simplicity i used sklearn based `GradientBoostingClassifier`.
 
+Amoung various parameters of `GradientBoostingClassifier` below three parameters seems to be effective performance based on sklearn documentation
+* `n_estimators` : The number of boosting stages to perform. Gradient boosting is fairly robust to over-fitting so a large number usually results in better performance.
+* `max_depth` : The maximum depth of the individual regression estimators. The maximum depth limits the number of nodes in the tree. Tune this parameter for best performance
+* `learning_rate`': Learning rate shrinks the contribution of each tree
 
 ### Results
-*TODO*: What are the results you got with your model? What were the parameters of the model? How could you have improved it?
-
-*TODO* Remeber to provide screenshots of the `RunDetails` widget as well as a screenshot of the best model trained with it's parameters.
+![HyperDrive_run](Resources/Images/HyperDrive_Run.PNG)
+![HyperDrive_Best_Model](Resources/Images/HyperDrive_Best_Model.PNG)
 
 ## Model Deployment
-*TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
+![Active_endpoint](Resources/Images/Endpoint_Active.PNG)
+![Active_Status](Resources/Images/Active_Endpoint.PNG)
+![State_Endpoint](Resources/Images/State_Endpoint.PNG)
 
 ## Screen Recording
+[Youtube](https://youtu.be/DfyGiSjVQm4)
 
-
-## Standout Suggestions
-*TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
+## Future Improvement
+* Perform Inference on IOT device using Deployed Model
+* Try LightGBM/SGD algorithm in Hyperdrive since it seems to give better comparative results
+* Convert Model to ONNX format and save it
+* Enable Application Insight/Login in the app
