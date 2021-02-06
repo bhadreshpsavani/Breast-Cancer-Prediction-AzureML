@@ -40,7 +40,7 @@ def main():
 
     y_pred = model.predict(x_test)
     f1 = f1_score(y_test, y_pred, average='macro')
-    run.log("F1 Score", np.float(f1))
+    run.log("F-score", np.float(f1))
 
     os.makedirs('outputs', exist_ok=True)
     joblib.dump(model, 'outputs/model.joblib')
