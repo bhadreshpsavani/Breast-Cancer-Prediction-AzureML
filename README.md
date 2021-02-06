@@ -66,20 +66,36 @@ ds = TabularDatasetFactory.register_pandas_dataframe(df, name='UCI_ML_Breast_Can
 We choose  `experiment_timeout_minutes=50mins` to give enough time to try all experiments,  `max_concurrent_iterations=5` according to max_nodes given while creating `training_instance`, We choose Accuracy as Primary Metrics since data is not highly imbalanced it seems good fit for binary classification problem.
 
 ### Results
+We got two models having highest same `98.94%` score:
+1. Voting Ensemble
+2. Stack Ensemble
+
+It can be seen in below image
 ![AutoML_Run](Resources/Images/AutoML_Run.PNG)
 ![Best AutoML Model](/Resources/Images/AutoML_Best_Model.PNG)
+
+Both the best performing models are made up of multiple models i have shown models available in our best performing `stackensembleclassifier` in the [AutoML Notebook](automl.ipynb). 
 
 ## Hyperparameter Tuning
 If we look at AutoML Run LightGBM and SGD which Gradient Boosted Models seems to be performing well. But they are Not available in SKlearn Library. SKlearn provides `GradientBoostingClassifier` which is based on similiar approach of Gradient Boosting. For simplicity i used sklearn based `GradientBoostingClassifier`.
 
 Amoung various parameters of `GradientBoostingClassifier` below three parameters seems to be effective performance based on sklearn documentation
-* `n_estimators` : The number of boosting stages to perform. Gradient boosting is fairly robust to over-fitting so a large number usually results in better performance.
-* `max_depth` : The maximum depth of the individual regression estimators. The maximum depth limits the number of nodes in the tree. Tune this parameter for best performance
-* `learning_rate`': Learning rate shrinks the contribution of each tree
+* **n_estimators** : The number of boosting stages to perform. Gradient boosting is fairly robust to over-fitting so a large number usually results in better performance. The selected range is `(1,10,20,50,100,200,500)`
+* **max_depth** : The maximum depth of the individual regression estimators. The maximum depth limits the number of nodes in the tree. Tune this parameter for best performance. The selected range is `(1, 5, 10, 20, 30, 50, 100)`
+* **learning_rate** : Learning rate shrinks the contribution of each tree. The selected range of parameters is `(1, 0.1, 0.01, 0.001)`
 
 ### Results
+Below images shows image of run widget and best performing model run.
 ![HyperDrive_run](Resources/Images/HyperDrive_Run.PNG)
 ![HyperDrive_Best_Model](Resources/Images/HyperDrive_Best_Model.PNG)
+
+Out best model is having below accuracy and parameters:
+```
+Accuracy: 0.9790209790209791
+learning_rate: 0.1
+max_depth: 1
+n_estimators: 500
+```
 
 ## Model Deployment
 ![Active_endpoint](Resources/Images/Endpoint_Active.PNG)
