@@ -1,19 +1,29 @@
-*NOTE:* This file is a template that you can use to create the README for your project. The *TODO* comments below will highlight the information you should be sure to include.
+# Beast Cancer Prediction with Azure ML
 
-# Your Project Title Here
+We will do Binary Classification on breast cancer dataset. Our Goal is to compare Hyperdrive and AutoML trained modela and deploy the best performing model.
 
-*TODO:* Write a short introduction to your project.
+First we will use HyperDrive to do Hyperparameter Tuning and get best performing model. We will use Automl and get Best performing model. We will compare best model from both the approach and deploy it. We will do inference on deployed model.
 
 ## Project Set Up and Installation
-*OPTIONAL:* If your project has any special installation steps, this is where you should put it. To turn this project into a professional portfolio project, you are encouraged to explain how to set up this project in AzureML.
+
 
 ## Dataset
 
 ### Overview
-*TODO*: Explain about the data you are using and where you got it from.
+The breast cancer dataset is a classic and very easy **binary classification** dataset.
+
+| Attribute | Value |
+| --- | --- |
+| Classes | 2 |
+| Samples per class | 212(M),357(B) |
+| Samples total | 569 |
+| Dimensionality | 30 |
+| Features | real, positive |
+
+We used sklearn version of dataset
 
 ### Task
-*TODO*: Explain the task you are going to be solving with this dataset and the features you will be using for it.
+Our task is to do Binary Classification on Breast Cancer Dataset, we will use all 30 features for training and testing.
 
 ### Access
 *TODO*: Explain how you are accessing the data in your workspace.
@@ -39,10 +49,7 @@
 *TODO*: Give an overview of the deployed model and instructions on how to query the endpoint with a sample input.
 
 ## Screen Recording
-*TODO* Provide a link to a screen recording of the project in action. Remember that the screencast should demonstrate:
-- A working model
-- Demo of the deployed  model
-- Demo of a sample request sent to the endpoint and its response
+
 
 ## Standout Suggestions
 *TODO (Optional):* This is where you can provide information about any standout suggestions that you have attempted.
