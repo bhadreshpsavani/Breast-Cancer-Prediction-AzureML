@@ -482,7 +482,7 @@ print(response.text)
 [Youtube](https://youtu.be/DfyGiSjVQm4)
 
 ## Future Improvement
-* Perform Inference on IOT device using Deployed Model
-* Try LightGBM/SGD algorithm in Hyperdrive since it seems to give better comparative results
-* Convert Model to ONNX format and save it
-* Enable Application Insight/Login in the app
+- [ ] Perform Inference on IOT device using Deployed Model
+- [ ] Try LightGBM/SGD algorithm in Hyperdrive since it seems to give better comparative results
+- [ ] Convert Model to ONNX format and save it
+- [ ] Enable Application Insight/Login in the app
