@@ -1,8 +1,9 @@
 # Beast Cancer Prediction with Azure ML
 
-We will do Binary Classification on breast cancer dataset. Our Goal is to compare Hyperdrive and AutoML trained modela and deploy the best performing model.
+We will do Binary Classification on breast cancer dataset. Our Goal is to compare Hyperdrive and AutoML trained model, deploy the best performing model and Use the End point for Inference.
 
-First we will use HyperDrive to do Hyperparameter Tuning and get best performing model. We will use Automl and get Best performing model. We will compare best model from both the approach and deploy it. We will do inference on deployed model.
+# Project Diagram:
+![Project-Outline](Resources/Images/capstone-diagram.png)
 
 ## Project Set Up and Installation
 
