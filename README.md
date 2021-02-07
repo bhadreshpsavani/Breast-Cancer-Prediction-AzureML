@@ -423,8 +423,241 @@ It is having `XGBoostClassifier`, `SGDClassifierWrapper`, `LogisticRegression`, 
 While `Voting Ensemble`  is also made of many models details are mentioned below,
 
 ```
+prefittedsoftvotingclassifier
+{'estimators': ['166', '119', '113', '111', '112', '13', '88', '83', '116'],
+ 'weights': [0.18181818181818182,
+             0.09090909090909091,
+             0.09090909090909091,
+             0.09090909090909091,
+             0.09090909090909091,
+             0.18181818181818182,
+             0.09090909090909091,
+             0.09090909090909091,
+             0.09090909090909091]}
 
+166 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': True,
+ 'with_std': True}
+
+166 - logisticregression
+{'C': 6866.488450042998,
+ 'class_weight': None,
+ 'dual': False,
+ 'fit_intercept': True,
+ 'intercept_scaling': 1,
+ 'l1_ratio': None,
+ 'max_iter': 100,
+ 'multi_class': 'ovr',
+ 'n_jobs': 1,
+ 'penalty': 'l2',
+ 'random_state': None,
+ 'solver': 'saga',
+ 'tol': 0.0001,
+ 'verbose': 0,
+ 'warm_start': False}
+
+119 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': True,
+ 'with_std': True}
+
+119 - logisticregression
+{'C': 232.99518105153672,
+ 'class_weight': None,
+ 'dual': False,
+ 'fit_intercept': True,
+ 'intercept_scaling': 1,
+ 'l1_ratio': None,
+ 'max_iter': 100,
+ 'multi_class': 'ovr',
+ 'n_jobs': 1,
+ 'penalty': 'l2',
+ 'random_state': None,
+ 'solver': 'saga',
+ 'tol': 0.0001,
+ 'verbose': 0,
+ 'warm_start': False}
+
+113 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': True,
+ 'with_std': True}
+
+113 - logisticregression
+{'C': 1048.1131341546852,
+ 'class_weight': None,
+ 'dual': False,
+ 'fit_intercept': True,
+ 'intercept_scaling': 1,
+ 'l1_ratio': None,
+ 'max_iter': 100,
+ 'multi_class': 'ovr',
+ 'n_jobs': 1,
+ 'penalty': 'l2',
+ 'random_state': None,
+ 'solver': 'saga',
+ 'tol': 0.0001,
+ 'verbose': 0,
+ 'warm_start': False}
+
+111 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': True,
+ 'with_std': True}
+
+111 - logisticregression
+{'C': 2222.996482526191,
+ 'class_weight': None,
+ 'dual': False,
+ 'fit_intercept': True,
+ 'intercept_scaling': 1,
+ 'l1_ratio': None,
+ 'max_iter': 100,
+ 'multi_class': 'ovr',
+ 'n_jobs': 1,
+ 'penalty': 'l2',
+ 'random_state': None,
+ 'solver': 'saga',
+ 'tol': 0.0001,
+ 'verbose': 0,
+ 'warm_start': False}
+
+112 - robustscaler
+{'copy': True,
+ 'quantile_range': [10, 90],
+ 'with_centering': True,
+ 'with_scaling': True}
+
+112 - logisticregression
+{'C': 16.768329368110066,
+ 'class_weight': None,
+ 'dual': False,
+ 'fit_intercept': True,
+ 'intercept_scaling': 1,
+ 'l1_ratio': None,
+ 'max_iter': 100,
+ 'multi_class': 'ovr',
+ 'n_jobs': 1,
+ 'penalty': 'l1',
+ 'random_state': None,
+ 'solver': 'saga',
+ 'tol': 0.0001,
+ 'verbose': 0,
+ 'warm_start': False}
+
+13 - sparsenormalizer
+{'copy': True, 'norm': 'max'}
+
+13 - xgboostclassifier
+{'base_score': 0.5,
+ 'booster': 'gbtree',
+ 'colsample_bylevel': 1,
+ 'colsample_bynode': 1,
+ 'colsample_bytree': 0.5,
+ 'eta': 0.5,
+ 'gamma': 0.01,
+ 'learning_rate': 0.1,
+ 'max_delta_step': 0,
+ 'max_depth': 10,
+ 'max_leaves': 7,
+ 'min_child_weight': 1,
+ 'missing': nan,
+ 'n_estimators': 50,
+ 'n_jobs': 1,
+ 'nthread': None,
+ 'objective': 'reg:logistic',
+ 'random_state': 0,
+ 'reg_alpha': 0,
+ 'reg_lambda': 0.8333333333333334,
+ 'scale_pos_weight': 1,
+ 'seed': None,
+ 'silent': None,
+ 'subsample': 1,
+ 'tree_method': 'auto',
+ 'verbose': -10,
+ 'verbosity': 0}
+
+88 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': True,
+ 'with_std': True}
+
+88 - logisticregression
+{'C': 0.3906939937054613,
+ 'class_weight': None,
+ 'dual': False,
+ 'fit_intercept': True,
+ 'intercept_scaling': 1,
+ 'l1_ratio': None,
+ 'max_iter': 100,
+ 'multi_class': 'ovr',
+ 'n_jobs': 1,
+ 'penalty': 'l2',
+ 'random_state': None,
+ 'solver': 'saga',
+ 'tol': 0.0001,
+ 'verbose': 0,
+ 'warm_start': False}
+
+83 - standardscalerwrapper
+{'class_name': 'StandardScaler',
+ 'copy': True,
+ 'module_name': 'sklearn.preprocessing._data',
+ 'with_mean': True,
+ 'with_std': True}
+
+83 - logisticregression
+{'C': 0.12648552168552957,
+ 'class_weight': None,
+ 'dual': False,
+ 'fit_intercept': True,
+ 'intercept_scaling': 1,
+ 'l1_ratio': None,
+ 'max_iter': 100,
+ 'multi_class': 'multinomial',
+ 'n_jobs': 1,
+ 'penalty': 'l2',
+ 'random_state': None,
+ 'solver': 'saga',
+ 'tol': 0.0001,
+ 'verbose': 0,
+ 'warm_start': False}
+
+116 - maxabsscaler
+{'copy': True}
+
+116 - svcwrapper
+{'C': 35.564803062231285,
+ 'break_ties': False,
+ 'cache_size': 200,
+ 'class_weight': 'balanced',
+ 'coef0': 0.0,
+ 'decision_function_shape': 'ovr',
+ 'degree': 3,
+ 'gamma': 'scale',
+ 'kernel': 'rbf',
+ 'max_iter': -1,
+ 'probability': True,
+ 'random_state': None,
+ 'shrinking': True,
+ 'tol': 0.001,
+ 'verbose': False}
 ```
+
+It includes `logisticregression`, `xgboostclassifier`, `svcwrapper` models for voting.
+
+In our case both models are giving same results because of similar approach of use of Multiple Models in single model architecture.
 
 ## Hyperparameter Tuning
 If we look at AutoML Run LightGBM and SGD which Gradient Boosted Models seems to be performing well. But they are Not available in SKlearn Library. SKlearn provides `GradientBoostingClassifier` which is based on similiar approach of Gradient Boosting. For simplicity i used sklearn based `GradientBoostingClassifier`.
@@ -444,6 +677,7 @@ Which is shown in below image after deployement.
 ![HyperDrive_Best_Model](Resources/Images/HyperDrive_Best_Model.PNG)
 
 Out best model is having below accuracy and parameters:
+First Best Model
 ```
 Model Name: GradientBoostingClassifier
 Accuracy: 0.9790209790209791
@@ -451,6 +685,15 @@ learning_rate: 0.1
 max_depth: 1
 n_estimators: 500
 ```
+Second Best Model
+```
+Model Name: GradientBoostingClassifier
+Accuracy: 0.965034965034965
+learning_rate: 1
+max_depth: 1
+n_estimators: 100
+```
+We can say that lowering learning rate and increasing number of estimators is increasing performance here.
 
 ## Model Deployment
 Best performing model is from AutoML run. I deployed **stackensembleclassifier** from automl run. 
