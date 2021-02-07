@@ -706,8 +706,8 @@ After Deployment we can perform inference using RestEndpoint URL/ Scoring URI by
 Sample Input: 
 ```python
 sample = {"data": [
-{"mean radius": 16.65, "mean texture": 21.38, "mean perimeter": 110.0, "mean area": 904.6, "mean smoothness": 0.1121, "mean compactness": 0.1457, "mean concavity": 0.1525, "mean concave points": 0.0917, "mean symmetry": 0.1995, "mean fractal dimension": 0.0633, "radius error": 0.8068, "texture error": 0.9017, "perimeter error": 5.455, "area error": 102.6, "smoothness error": 0.006048, "compactness error": 0.01882, "concavity error": 0.02741, "concave points error": 0.0113, "symmetry error": 0.01468, "fractal dimension error": 0.002801, "worst radius": 26.46, "worst texture": 31.56, "worst perimeter": 177.0, "worst area": 2215.0, "worst smoothness": 0.1805, "worst compactness": 0.3578, "worst concavity": 0.4695, "worst concave points": 0.2095, "worst symmetry": 0.3613, "worst fractal dimension": 0.09564}, 
-{"mean radius": 17.27, "mean texture": 25.42, "mean perimeter": 112.4, "mean area": 928.8, "mean smoothness": 0.08331, "mean compactness": 0.1109, "mean concavity": 0.1204, "mean concave points": 0.05736, "mean symmetry": 0.1467, "mean fractal dimension": 0.05407, "radius error": 0.51, "texture error": 1.679, "perimeter error": 3.283, "area error": 58.38, "smoothness error": 0.008109, "compactness error": 0.04308, "concavity error": 0.04942, "concave points error": 0.01742, "symmetry error": 0.01594, "fractal dimension error": 0.003739, "worst radius": 20.38, "worst texture": 35.46, "worst perimeter": 132.8, "worst area": 1284.0, "worst smoothness": 0.1436, "worst compactness": 0.4122, "worst concavity": 0.5036, "worst concave points": 0.1739, "worst symmetry": 0.25, "worst fractal dimension": 0.07944}
+{"mean radius": 14.74, "mean texture": 25.42, "mean perimeter": 94.7, "mean area": 668.6, "mean smoothness": 0.08275, "mean compactness": 0.07214, "mean concavity": 0.04105, "mean concave points": 0.03027, "mean symmetry": 0.184, "mean fractal dimension": 0.0568, "radius error": 0.3031, "texture error": 1.385, "perimeter error": 2.177, "area error": 27.41, "smoothness error": 0.004775, "compactness error": 0.01172, "concavity error": 0.01947, "concave points error": 0.01269, "symmetry error": 0.0187, "fractal dimension error": 0.002626, "worst radius": 16.51, "worst texture": 32.29, "worst perimeter": 107.4, "worst area": 826.4, "worst smoothness": 0.106, "worst compactness": 0.1376, "worst concavity": 0.1611, "worst concave points": 0.1095, "worst symmetry": 0.2722, "worst fractal dimension": 0.06956}, 
+{"mean radius": 11.29, "mean texture": 13.04, "mean perimeter": 72.23, "mean area": 388.0, "mean smoothness": 0.09834, "mean compactness": 0.07608, "mean concavity": 0.03265, "mean concave points": 0.02755, "mean symmetry": 0.1769, "mean fractal dimension": 0.0627, "radius error": 0.1904, "texture error": 0.5293, "perimeter error": 1.164, "area error": 13.17, "smoothness error": 0.006472, "compactness error": 0.01122, "concavity error": 0.01282, "concave points error": 0.008849, "symmetry error": 0.01692, "fractal dimension error": 0.002817, "worst radius": 12.32, "worst texture": 16.18, "worst perimeter": 78.27, "worst area": 457.5, "worst smoothness": 0.1358, "worst compactness": 0.1507, "worst concavity": 0.1275, "worst concave points": 0.0875, "worst symmetry": 0.2733, "worst fractal dimension": 0.08022}
 ]}
 ```
 
@@ -720,7 +720,11 @@ response = requests.post(service.scoring_uri, test_sample, headers=headers)
 print("response")
 print(response.text)
 ```
-
+Output:
+```
+response
+"{\"result\": [1, 1]}"
+```
 ## Screen Recording
 [Youtube](https://youtu.be/DfyGiSjVQm4)
 
