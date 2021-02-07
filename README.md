@@ -3,7 +3,7 @@
 We will do Binary Classification on breast cancer dataset. Our Goal is to compare Hyperdrive and AutoML trained model, deploy the best performing model and Use the End point for Inference.
 
 ## Project Step Overview:
-![Project-Outline](Resources/Images/capstone-diagram.png)
+![Project-Outline](Resources/Images/breast_cancer_prediction_flow_graph.png)
 
 First We selected breast cancer dataset for a Binary Classfication task. We wrote code in workspace notebook to access database. We did AutoML run and registered best model. We perform HyperDrive Run and Get Another Best Model. We compared the performance of both model and deployed the best one. Using Deployed Endpoint we made inference request.
 
